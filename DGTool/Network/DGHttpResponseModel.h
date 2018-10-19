@@ -23,7 +23,6 @@
 /** 完整的请求链接 */
 @property(nonatomic,copy) NSString *requestStr;
 
-
 /** 响应结果字符串 */
 @property(nonatomic,copy) NSString *resultStr;
 
@@ -45,6 +44,8 @@
 
 /** 响应的时间 Thu, 19 Apr 2018 02:18:39 GMT */
 @property(nonatomic,strong) NSDate *responseDate;
+
+
 
 - (void)parsingError:(NSError *)error;
 - (void)parsingResult:(NSString *)resultStr;

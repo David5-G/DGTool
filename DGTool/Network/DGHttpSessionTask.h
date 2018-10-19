@@ -17,6 +17,7 @@ typedef void(^HttpTaskCompletionHandler)(NSString *errorStr, DGHttpResponseModel
 
 
 #pragma mark - 设置请求
+
 /** 访问ip */
 @property(nonatomic,copy) NSString *scopeIp;
 
@@ -24,7 +25,10 @@ typedef void(^HttpTaskCompletionHandler)(NSString *errorStr, DGHttpResponseModel
  *  设置一次 额外的 每个接口都要发送的数据
  *  可放入 比如 authedUserId timestamp
  */
-@property(nonatomic,retain) NSDictionary *extreDic;
+@property(nonatomic,strong) NSDictionary *extreDic;
+
+/** 设置http请求头部 */
+@property(nonatomic,strong) NSMutableDictionary *requestHttpHeaderFieldDic;
 
 /** 超时时间 */
 @property(nonatomic,assign) NSTimeInterval timeoutInterval;
@@ -39,31 +43,23 @@ typedef void(^HttpTaskCompletionHandler)(NSString *errorStr, DGHttpResponseModel
 @property(nonatomic,assign) BOOL needResponseDate;
 
 /** 设置登录后拿到的signKey */
-@property(nonatomic,retain) NSString *signKeyStr;
+@property(nonatomic,strong) NSString *signKeyStr;
 
 /** 执行完成后回调的block */
 @property(nonatomic,copy) HttpTaskCompletionHandler completionHandler;
 
 /** 设置通用响应结果特殊处理回调集合 */
-@property(nonatomic,retain) NSMutableDictionary *logicBlockMutDic;
+@property(nonatomic,strong) NSMutableDictionary *logicBlockMutDic;
 
 /** 添加额外参数 */
 - (void)addExtreDic:(NSDictionary *)dic;
 
-#pragma mark - httpHeaderField
-/** 设置http请求头部 */
-@property(nonatomic,strong) id requestHttpHeaderFieldDic;
-/**
- *  重写requestHTTPHeaderFieldDic的set和get
- *  类型可以为NSDictionary or NSMutableDictionary
- */
-- (void)setRequestHTTPHeaderFieldDic:(id)requestHTTPHeaderFieldDic;
-- (id)requestHTTPHeaderFieldDic;
 
 #pragma mark - request
 /**
- * url NSString 或者 NSURL
- * paramsDic的关键字
+ * url       NSString 或者 NSURL
+ * paramsDic 参数
+ * 如果needResponseDate属性没有设置,可以在paramsDic中设置getDate字段达到同样效果
  */
 - (void)post:(id)url params:(id)paramsDic completionHandler:(HttpTaskCompletionHandler)completionHandler;
 

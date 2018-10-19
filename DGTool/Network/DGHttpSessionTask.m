@@ -12,7 +12,7 @@
 
 @interface DGHttpSessionTask()
 /** 统一处理回调合集 */
-@property(nonatomic,retain) NSMutableArray *logicMutArr;
+@property(nonatomic,strong) NSMutableArray *logicMutArr;
 @end
 
 
@@ -61,10 +61,10 @@ static dispatch_once_t onceToken;
     
     //3.创建responseModel获取service
     DGHttpResponseModel *model = [[DGHttpResponseModel alloc]init];
-    model.serviceStr=paramsDic[@"service"];
+    model.serviceStr = paramsDic[@"service"];
     
     //4.设置执行block的deleage
-    DGHttpSessionTask *executorDelegate = [[DGHttpSessionTask alloc]init];
+    DGHttpSessionTask *executorDelegate = [[DGHttpSessionTask alloc] init];
     executorDelegate.completionHandler = completionHandler;// 绑定执行完成时的block
     
     //5.创建session
@@ -73,7 +73,7 @@ static dispatch_once_t onceToken;
     
     //6.设置params参数
     if ([paramsDic isKindOfClass:[NSDictionary class]]) {
-        paramsDic=[[NSMutableDictionary alloc] initWithDictionary:paramsDic];
+        paramsDic = [[NSMutableDictionary alloc] initWithDictionary:paramsDic];
     }
     
     if (!_forbiddenTimeStamp) {
@@ -85,7 +85,7 @@ static dispatch_once_t onceToken;
     }
     
     if (_extreDic) {
-        NSArray *keys=[_extreDic allKeys];
+        NSArray *keys = [_extreDic allKeys];
         for (int i=0; i<keys.count; i++) {
             [paramsDic setObject:_extreDic[keys[i]] forKey:keys[i]];
         }
@@ -124,6 +124,48 @@ static dispatch_once_t onceToken;
     NSString *paraString;// = [CC_FormatDic getSignFormatStringWithDic:paramsDic andMD5Key:_signKeyStr];
     
     NSURLRequest *urlReq = [self requestWithUrl:tempUrl andParamters:paraString andType:type];
+    
+    model.requestUrlStr = urlReq.URL.absoluteString;
+    model.requestStr = [NSString stringWithFormat:@"%@%@",urlReq.URL.absoluteString,paraString];
+    
+    __block DGHttpSessionTask *blockSelf = self;
+    NSURLSessionDownloadTask *downTask = [session downloadTaskWithRequest:urlReq completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        [session finishTasksAndInvalidate];
+        
+        //域名处理
+        if (NSURLErrorCannotFindHost == error.code) {
+            NSURL *errorUrl =  error.userInfo[NSURLErrorFailingURLErrorKey];
+            NSString *ipStr = blockSelf.scopeIp;
+            
+            if (ipStr.length>0 && errorUrl.host.length>0) {
+                
+                NSMutableString *mutErrorUrlStr = [NSMutableString stringWithString:errorUrl.relativeString];
+                NSString *newUrlStr = [mutErrorUrlStr stringByReplacingOccurrencesOfString:errorUrl.host withString:ipStr];
+                NSURL *newUrl = [NSURL URLWithString:newUrlStr];
+                
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    [blockSelf.requestHttpHeaderFieldDic setObject:errorUrl.host forKey:@"host"];
+                    [blockSelf request:newUrl Params:paramsDic type:type completionHandler:^(NSString *errorStr, DGHttpResponseModel *model) {
+                        completionHandler(errorStr,model);
+                    }];
+                    executorDelegate.completionHandler(@"", model);
+                });
+                return ;
+            }
+            
+        }else {
+            [blockSelf.requestHttpHeaderFieldDic setObject:@"" forKey:@"host"];
+        }
+        
+        if(paramsDic[@"getDate"] || blockSelf.needResponseDate) {
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            
+        }
+    }];
+    
+    
+    
 }
 
 
@@ -133,7 +175,7 @@ static dispatch_once_t onceToken;
     
     //1.创建request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]init];
-    request.URL=url;
+    request.URL = url;
     
     //2.设置
     request.HTTPBody = [paramsString dataUsingEncoding:NSUTF8StringEncoding];
@@ -153,6 +195,25 @@ static dispatch_once_t onceToken;
         [request setValue:_requestHttpHeaderFieldDic[keys[i]] forHTTPHeaderField:keys[i]];
     }
     return request;
+}
+
+#pragma mark - tool
+/** 获取httpResponse的时间 */
+- (void)loadResponseDate:(DGHttpResponseModel *)model response:(NSHTTPURLResponse *)httpResponse{
+    //1.获取date
+    NSString *date = [[httpResponse allHeaderFields] objectForKey:@"Date"];
+    //2.截取
+    date = [date substringFromIndex:5];
+    date = [date substringToIndex:[date length]-4];
+    //3.格式化
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init]; formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    [formatter setDateFormat:model.responseDateFormatStr];
+    
+    NSDate *netDate = [[formatter dateFromString:date] dateByAddingTimeInterval:60*60*8];
+    NSTimeZone *zone = [NSTimeZone systemTimeZone];
+    NSInteger interval = [zone secondsFromGMTForDate: netDate];
+    NSDate *localeDate = [netDate dateByAddingTimeInterval: interval];
+    model.responseDate = localeDate;
 }
 
 @end
