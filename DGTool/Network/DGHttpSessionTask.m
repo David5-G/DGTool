@@ -9,6 +9,8 @@
 #import "DGHttpSessionTask.h"
 #import "DGShare.h"
 #import "DGHookTrack.h"
+#import "DGHttpRequestRecord.h"
+#import "DGHttpResponseLogicModel.h"
 
 @interface DGHttpSessionTask()
 /** 统一处理回调合集 */
@@ -160,12 +162,56 @@ static dispatch_once_t onceToken;
         
         if(paramsDic[@"getDate"] || blockSelf.needResponseDate) {
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-            
+            [blockSelf loadResponseDate:model response:httpResponse];
         }
+        
+        if (error) {
+            [model parsingError:error];
+        }else {
+            NSString *resultStr= [NSString stringWithContentsOfURL:location encoding:NSUTF8StringEncoding error:&error];
+            //NSCAssert(!resultStr, @"没有解析成数据");
+            if (!resultStr) {
+                NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+                resultStr = [NSString stringWithContentsOfURL:location encoding:enc error:&error];
+                if (model.debug&&resultStr) {
+                    DGHttpLog(@"返回头是GBK编码");
+                }
+            }
+            [model parsingResult:resultStr];
+        }
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            if (model.debug) {
+                [[DGHttpRequestRecord getInstance]insertRequestDataWithService:paramsDic[@"service"] requestUrl:tempUrl.absoluteString parameters:paraString];
+            }
+            if (model.resultDic) {
+                NSString *tempStr = [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:model.resultDic options:NSJSONWritingPrettyPrinted error:nil] encoding:NSUTF8StringEncoding];
+                DGHttpLog(@"%@\n%@",model.requestStr,tempStr);
+            }else{
+                DGHttpLog(@"%@\n%@",model.requestStr,model.resultStr);
+            }
+            
+            NSArray *keyNames = [blockSelf.logicBlockMutDic allKeys];
+            for (NSString *name in keyNames) {
+                DGHttpResponseLogicModel *logicModel = blockSelf.logicBlockMutDic[name];
+                if (logicModel.logicPathArr.count > 0) {
+                    [blockSelf reponseLogicPassed:logicModel result:model.resultDic index:0];
+                    //使用更新后的数据
+                    DGHttpResponseLogicModel *newModel=blockSelf.logicBlockMutDic[logicModel.logicNameStr];
+                    if (newModel.logicPassed) {
+                        newModel.logicBlock(model.resultDic);
+                        if (newModel.logicPassStop) {
+                            return ;
+                        }
+                    }
+                }
+            }
+            executorDelegate.completionHandler(model.errorMsgStr, model);
+        });
     }];
     
     
-    
+    [downTask resume];
 }
 
 
@@ -214,6 +260,35 @@ static dispatch_once_t onceToken;
     NSInteger interval = [zone secondsFromGMTForDate: netDate];
     NSDate *localeDate = [netDate dateByAddingTimeInterval: interval];
     model.responseDate = localeDate;
+}
+
+- (void)reponseLogicPassed:(DGHttpResponseLogicModel *)model result:(id)result index:(int)index{
+    if (!result) {
+        return;
+    }
+    model.logicPassed=0;
+    if ([result isKindOfClass:[NSString class]]||
+        [result isKindOfClass:[NSNumber class]]) {
+        if ([result isKindOfClass:[NSNumber class]]) {
+            result = [NSString stringWithFormat:@"%@",result];
+        }
+        if (model.logicEqualStr) {
+            if ([result isEqualToString:model.logicEqualStr]) {//字段相等 通过
+                model.logicPassed=1;
+            }else{
+                model.logicPassed=0;
+            }
+        }else{//有这个字段 通过
+            model.logicPassed=1;
+        }
+        [_logicBlockMutDic setObject:model forKey:model.logicNameStr];
+        return;
+    }
+    if (index>=model.logicPathArr.count) {
+        NSCAssert(index<model.logicPathArr.count, @"该路径下不是一个字段");
+        return;
+    }
+    [self reponseLogicPassed:model result:result[model.logicPathArr[index]] index:index+1];
 }
 
 @end

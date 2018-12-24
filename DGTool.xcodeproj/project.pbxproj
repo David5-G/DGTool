@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		055C42DFFF436597D85FD84B /* Pods_DGTool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 306A997E4F3FE98DECC9E2F3 /* Pods_DGTool.framework */; };
+		6304074D2182CF6B00391691 /* DGUITool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6304074C2182CF6B00391691 /* DGUITool.m */; };
 		633F9822216C80C900D86B96 /* DGNetWorkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 633F9821216C80C900D86B96 /* DGNetWorkConfig.m */; };
 		633F9825216C825C00D86B96 /* DGHttpSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 633F9824216C825C00D86B96 /* DGHttpSessionTask.m */; };
 		633F9828216C82B700D86B96 /* DGHttpResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 633F9827216C82B700D86B96 /* DGHttpResponseModel.m */; };
 		633F982D216C89AE00D86B96 /* DGAppTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 633F982C216C89AE00D86B96 /* DGAppTool.m */; };
 		633F9830216C954600D86B96 /* DGShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 633F982F216C954600D86B96 /* DGShare.m */; };
 		633F9834216CA84700D86B96 /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 633F9833216CA84700D86B96 /* NSDictionary+Safe.m */; };
+		635E6BDD217F1CB6003AAFF8 /* DGHttpRequestRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 635E6BDC217F1CB6003AAFF8 /* DGHttpRequestRecord.m */; };
+		635E6BE0217F2B75003AAFF8 /* DGHttpResponseLogicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 635E6BDF217F2B75003AAFF8 /* DGHttpResponseLogicModel.m */; };
 		6367643E217054CE00117BE7 /* DGScannerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6367643D217054CE00117BE7 /* DGScannerTool.m */; };
 		63676441217096F400117BE7 /* UINavigationController+DGHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 63676440217096F400117BE7 /* UINavigationController+DGHook.m */; };
 		6378E071215DD4180046F7FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6378E070215DD4180046F7FA /* AppDelegate.m */; };
@@ -23,14 +26,20 @@
 		6378E07C215DD41A0046F7FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6378E07A215DD41A0046F7FA /* LaunchScreen.storyboard */; };
 		6378E07F215DD41A0046F7FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6378E07E215DD41A0046F7FA /* main.m */; };
 		6378E08A215DD5070046F7FA /* DGImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6378E089215DD5070046F7FA /* DGImageTool.m */; };
+		637C252721805C1E0050C4FF /* PPNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 637C252321805C1E0050C4FF /* PPNavigationBar.m */; };
+		637C252821805C1E0050C4FF /* PPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 637C252521805C1E0050C4FF /* PPBaseViewController.m */; };
+		637C252D21805DB90050C4FF /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 637C252C21805DB90050C4FF /* UINavigationController+FDFullscreenPopGesture.m */; };
+		63D3F05E21D0E0590028679B /* NSMutableDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F05C21D0E0580028679B /* NSMutableDictionary+Safe.m */; };
+		63D3F06121D0E06A0028679B /* NSObject+runtimeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F06021D0E06A0028679B /* NSObject+runtimeTool.m */; };
 		63E7AF8F216C46560017DCA5 /* DGRunTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E7AF8E216C46560017DCA5 /* DGRunTime.m */; };
-		63FCD0C4216D90BF00516026 /* NSMutableDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FCD0C3216D90BF00516026 /* NSMutableDictionary+Safe.m */; };
 		63FCD0C7216D9B9500516026 /* DGHookTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FCD0C6216D9B9500516026 /* DGHookTrack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		306A997E4F3FE98DECC9E2F3 /* Pods_DGTool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DGTool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CEBA68EF42638B6202BC31 /* Pods-DGTool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DGTool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DGTool/Pods-DGTool.debug.xcconfig"; sourceTree = "<group>"; };
+		6304074B2182CF6B00391691 /* DGUITool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DGUITool.h; sourceTree = "<group>"; };
+		6304074C2182CF6B00391691 /* DGUITool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DGUITool.m; sourceTree = "<group>"; };
 		633F9820216C80C900D86B96 /* DGNetWorkConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DGNetWorkConfig.h; sourceTree = "<group>"; };
 		633F9821216C80C900D86B96 /* DGNetWorkConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DGNetWorkConfig.m; sourceTree = "<group>"; };
 		633F9823216C825C00D86B96 /* DGHttpSessionTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DGHttpSessionTask.h; sourceTree = "<group>"; };
@@ -44,6 +53,10 @@
 		633F982F216C954600D86B96 /* DGShare.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DGShare.m; sourceTree = "<group>"; };
 		633F9832216CA84700D86B96 /* NSDictionary+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Safe.h"; sourceTree = "<group>"; };
 		633F9833216CA84700D86B96 /* NSDictionary+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Safe.m"; sourceTree = "<group>"; };
+		635E6BDB217F1CB6003AAFF8 /* DGHttpRequestRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DGHttpRequestRecord.h; sourceTree = "<group>"; };
+		635E6BDC217F1CB6003AAFF8 /* DGHttpRequestRecord.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DGHttpRequestRecord.m; sourceTree = "<group>"; };
+		635E6BDE217F2B75003AAFF8 /* DGHttpResponseLogicModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DGHttpResponseLogicModel.h; sourceTree = "<group>"; };
+		635E6BDF217F2B75003AAFF8 /* DGHttpResponseLogicModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DGHttpResponseLogicModel.m; sourceTree = "<group>"; };
 		6367643C217054CE00117BE7 /* DGScannerTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DGScannerTool.h; sourceTree = "<group>"; };
 		6367643D217054CE00117BE7 /* DGScannerTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DGScannerTool.m; sourceTree = "<group>"; };
 		6367643F217096F400117BE7 /* UINavigationController+DGHook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+DGHook.h"; sourceTree = "<group>"; };
@@ -60,10 +73,19 @@
 		6378E07E215DD41A0046F7FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6378E088215DD5070046F7FA /* DGImageTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DGImageTool.h; sourceTree = "<group>"; };
 		6378E089215DD5070046F7FA /* DGImageTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DGImageTool.m; sourceTree = "<group>"; };
+		637C252321805C1E0050C4FF /* PPNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNavigationBar.m; sourceTree = "<group>"; };
+		637C252421805C1E0050C4FF /* PPNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNavigationBar.h; sourceTree = "<group>"; };
+		637C252521805C1E0050C4FF /* PPBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPBaseViewController.m; sourceTree = "<group>"; };
+		637C252621805C1E0050C4FF /* PPBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPBaseViewController.h; sourceTree = "<group>"; };
+		637C252921805C8B0050C4FF /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		637C252B21805DB90050C4FF /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
+		637C252C21805DB90050C4FF /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		63D3F05C21D0E0580028679B /* NSMutableDictionary+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Safe.m"; sourceTree = "<group>"; };
+		63D3F05D21D0E0590028679B /* NSMutableDictionary+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Safe.h"; sourceTree = "<group>"; };
+		63D3F05F21D0E06A0028679B /* NSObject+runtimeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+runtimeTool.h"; sourceTree = "<group>"; };
+		63D3F06021D0E06A0028679B /* NSObject+runtimeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+runtimeTool.m"; sourceTree = "<group>"; };
 		63E7AF8D216C46560017DCA5 /* DGRunTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DGRunTime.h; sourceTree = "<group>"; };
 		63E7AF8E216C46560017DCA5 /* DGRunTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DGRunTime.m; sourceTree = "<group>"; };
-		63FCD0C2216D90BF00516026 /* NSMutableDictionary+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Safe.h"; sourceTree = "<group>"; };
-		63FCD0C3216D90BF00516026 /* NSMutableDictionary+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Safe.m"; sourceTree = "<group>"; };
 		63FCD0C5216D9B9500516026 /* DGHookTrack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DGHookTrack.h; sourceTree = "<group>"; };
 		63FCD0C6216D9B9500516026 /* DGHookTrack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DGHookTrack.m; sourceTree = "<group>"; };
 		EC152205C9F597401486EE93 /* Pods-DGTool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DGTool.release.xcconfig"; path = "Pods/Target Support Files/Pods-DGTool/Pods-DGTool.release.xcconfig"; sourceTree = "<group>"; };
@@ -94,10 +116,12 @@
 		633F9831216CA72100D86B96 /* categories */ = {
 			isa = PBXGroup;
 			children = (
+				63D3F05F21D0E06A0028679B /* NSObject+runtimeTool.h */,
+				63D3F06021D0E06A0028679B /* NSObject+runtimeTool.m */,
 				633F9832216CA84700D86B96 /* NSDictionary+Safe.h */,
 				633F9833216CA84700D86B96 /* NSDictionary+Safe.m */,
-				63FCD0C2216D90BF00516026 /* NSMutableDictionary+Safe.h */,
-				63FCD0C3216D90BF00516026 /* NSMutableDictionary+Safe.m */,
+				63D3F05D21D0E0590028679B /* NSMutableDictionary+Safe.h */,
+				63D3F05C21D0E0580028679B /* NSMutableDictionary+Safe.m */,
 				6367643F217096F400117BE7 /* UINavigationController+DGHook.h */,
 				63676440217096F400117BE7 /* UINavigationController+DGHook.m */,
 			);
@@ -125,6 +149,8 @@
 		6378E06E215DD4180046F7FA /* DGTool */ = {
 			isa = PBXGroup;
 			children = (
+				637C252A21805DB90050C4FF /* FDFullscreenPopGesture */,
+				637C252221805C0D0050C4FF /* Base */,
 				633F9831216CA72100D86B96 /* categories */,
 				633F9829216C84F800D86B96 /* common */,
 				6378E085215DD49B0046F7FA /* Foundation */,
@@ -139,6 +165,7 @@
 				6378E07A215DD41A0046F7FA /* LaunchScreen.storyboard */,
 				6378E07D215DD41A0046F7FA /* Info.plist */,
 				6378E07E215DD41A0046F7FA /* main.m */,
+				637C252921805C8B0050C4FF /* PrefixHeader.pch */,
 			);
 			path = DGTool;
 			sourceTree = "<group>";
@@ -161,11 +188,14 @@
 				633F9824216C825C00D86B96 /* DGHttpSessionTask.m */,
 				633F9826216C82B700D86B96 /* DGHttpResponseModel.h */,
 				633F9827216C82B700D86B96 /* DGHttpResponseModel.m */,
+				635E6BDE217F2B75003AAFF8 /* DGHttpResponseLogicModel.h */,
+				635E6BDF217F2B75003AAFF8 /* DGHttpResponseLogicModel.m */,
+				635E6BDB217F1CB6003AAFF8 /* DGHttpRequestRecord.h */,
+				635E6BDC217F1CB6003AAFF8 /* DGHttpRequestRecord.m */,
 				63FCD0C5216D9B9500516026 /* DGHookTrack.h */,
 				63FCD0C6216D9B9500516026 /* DGHookTrack.m */,
 				6367643C217054CE00117BE7 /* DGScannerTool.h */,
 				6367643D217054CE00117BE7 /* DGScannerTool.m */,
-				63FCD0C8216DB24E00516026 /* New Group */,
 				633F982E216C954600D86B96 /* DGShare.h */,
 				633F982F216C954600D86B96 /* DGShare.m */,
 			);
@@ -177,15 +207,30 @@
 			children = (
 				6378E088215DD5070046F7FA /* DGImageTool.h */,
 				6378E089215DD5070046F7FA /* DGImageTool.m */,
+				6304074B2182CF6B00391691 /* DGUITool.h */,
+				6304074C2182CF6B00391691 /* DGUITool.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
 		};
-		63FCD0C8216DB24E00516026 /* New Group */ = {
+		637C252221805C0D0050C4FF /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				637C252621805C1E0050C4FF /* PPBaseViewController.h */,
+				637C252521805C1E0050C4FF /* PPBaseViewController.m */,
+				637C252421805C1E0050C4FF /* PPNavigationBar.h */,
+				637C252321805C1E0050C4FF /* PPNavigationBar.m */,
 			);
-			path = "New Group";
+			path = Base;
+			sourceTree = "<group>";
+		};
+		637C252A21805DB90050C4FF /* FDFullscreenPopGesture */ = {
+			isa = PBXGroup;
+			children = (
+				637C252B21805DB90050C4FF /* UINavigationController+FDFullscreenPopGesture.h */,
+				637C252C21805DB90050C4FF /* UINavigationController+FDFullscreenPopGesture.m */,
+			);
+			path = FDFullscreenPopGesture;
 			sourceTree = "<group>";
 		};
 		CCDB34424754249092F6AF83 /* Pods */ = {
@@ -316,7 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63FCD0C4216D90BF00516026 /* NSMutableDictionary+Safe.m in Sources */,
+				637C252821805C1E0050C4FF /* PPBaseViewController.m in Sources */,
 				633F9830216C954600D86B96 /* DGShare.m in Sources */,
 				6378E08A215DD5070046F7FA /* DGImageTool.m in Sources */,
 				6378E074215DD4180046F7FA /* ViewController.m in Sources */,
@@ -325,12 +370,19 @@
 				6367643E217054CE00117BE7 /* DGScannerTool.m in Sources */,
 				633F9828216C82B700D86B96 /* DGHttpResponseModel.m in Sources */,
 				6378E07F215DD41A0046F7FA /* main.m in Sources */,
+				637C252D21805DB90050C4FF /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				63D3F06121D0E06A0028679B /* NSObject+runtimeTool.m in Sources */,
 				63FCD0C7216D9B9500516026 /* DGHookTrack.m in Sources */,
 				633F982D216C89AE00D86B96 /* DGAppTool.m in Sources */,
+				635E6BE0217F2B75003AAFF8 /* DGHttpResponseLogicModel.m in Sources */,
 				633F9834216CA84700D86B96 /* NSDictionary+Safe.m in Sources */,
 				633F9822216C80C900D86B96 /* DGNetWorkConfig.m in Sources */,
 				63E7AF8F216C46560017DCA5 /* DGRunTime.m in Sources */,
+				637C252721805C1E0050C4FF /* PPNavigationBar.m in Sources */,
+				63D3F05E21D0E0590028679B /* NSMutableDictionary+Safe.m in Sources */,
+				6304074D2182CF6B00391691 /* DGUITool.m in Sources */,
 				6378E071215DD4180046F7FA /* AppDelegate.m in Sources */,
+				635E6BDD217F1CB6003AAFF8 /* DGHttpRequestRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +524,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZHJX48G4CA;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/david/Desktop/DGTool/DGTool/PrefixHeader.pch;
 				INFOPLIST_FILE = DGTool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -489,6 +544,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZHJX48G4CA;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/david/Desktop/DGTool/DGTool/PrefixHeader.pch;
 				INFOPLIST_FILE = DGTool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

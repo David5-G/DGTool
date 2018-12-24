@@ -21,12 +21,12 @@
 //---------------------------------------------------
 #pragma mark - color
 /** 二进制颜色*/
-#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0x00FF0000) >> 16)) / 255.0     \
-green:((float)((rgbValue & 0x0000FF00) >>  8)) / 255.0     \
-blue:((float)((rgbValue & 0x000000FF) >>  0)) / 255.0     \
+#define COLOR_HEX(hex) [UIColor colorWithRed:((float)((hex & 0x00FF0000) >> 16)) / 255.0     \
+green:((float)((hex & 0x0000FF00) >>  8)) / 255.0     \
+blue:((float)((hex & 0x000000FF) >>  0)) / 255.0     \
 alpha:1.0]
 
-#define UIColorFromHexStr(hexStr) ({NSString *colorHexStr = [hexStr stringByReplacingOccurrencesOfString:@"#" withString:@"0x"]; \
+#define COLOR_HexStr(hexStr) ({NSString *colorHexStr = [hexStr stringByReplacingOccurrencesOfString:@"#" withString:@"0x"]; \
 unsigned colorHex = 0; \
 [[NSScanner scannerWithString:colorHexStr] scanHexInt:&colorHex];\
 UIColorFromRGB(colorHex);})
@@ -37,65 +37,58 @@ UIColorFromRGB(colorHex);})
 #define RGB(r,g,b)    RGBA(r,g,b,1.0f)
 
 /** 常用颜色 */
-#define BLACK_TEXT_COLOR        RGBA(51,51,51,1.0)
-#define DARK_GRAY_TEXT_COLOR    RGBA(102,102,102,1.0)
-#define GRAY_TEXT_COLOR         RGBA(153,153,153,1.0)
-
-
-
-//---------------------------------------------------
-#pragma mark - 设备/版本
-/** 获取系统版本*/
-#define IOS_VERSION            [[[UIDevice currentDevice] systemVersion] floatValue]
-#define CurrentSystemVersion   [[UIDevice currentDevice] systemVersion]
-#define CurrentAppVersion      [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
-
-// 判断iPhone
-#define iPhone4 (MAX(SCREEN_WIDTH, SCREEN_HEIGHT) == 480)
-#define iPhone5 (MAX(SCREEN_WIDTH, SCREEN_HEIGHT) == 568)
-#define iPhoneX (MAX(SCREEN_WIDTH, SCREEN_HEIGHT) >= 812)
-
-//---------------------------------------------------
-#pragma mark - scale
-#define fiveScreen_ScreenWidthScale (MINValue(SCREEN_WIDTH,SCREEN_HEIGHT)/320.0*0.8+0.2)
-#define sixScreen_ScreenWidthScale  (MINValue(SCREEN_WIDTH,SCREEN_HEIGHT)/375.0)
-
-#define ScreenWidthScale      (MINValue(SCREEN_WIDTH,SCREEN_HEIGHT)/414.0*0.8+0.2)
-#define ScreenHeightScale     (MAXValue(SCREEN_WIDTH,SCREEN_HEIGHT)/736.0*0.8+0.2)
-#define ScreenWidthFullScale  MINValue(SCREEN_WIDTH,SCREEN_HEIGHT)/414
-#define ScreenWidthScaleWithSCREENWIDTH(a) (a/414.0*0.8+0.2)
+#define COLOR_BLACK_TEXT        RGBA(51,51,51,1.0)
+#define COLOR_DARK_GRAY_TEXT    RGBA(102,102,102,1.0)
+#define COLOR_GRAY_TEXT         RGBA(153,153,153,1.0)
+#define COLOR_NAVI_BG   RGB(83, 181, 233)
 
 
 //---------------------------------------------------
 #pragma mark - 尺寸(宽高)
+#define KEY_WINDOW [UIApplication sharedApplication].keyWindow
+
 /** 获取屏幕 宽度、高度*/
-#define SCREEN_BOUNDS ([UIScreen mainScreen].bounds)
-#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
-#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+#define SCREEN_BOUNDS  ([UIScreen mainScreen].bounds)
+#define SCREEN_W       ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_H       ([UIScreen mainScreen].bounds.size.height)
 
-//#define BBKEY_WINDOW [UIApplication sharedApplication].keyWindow
-#define BBKEY_WINDOW [[[UIApplication sharedApplication] delegate] window]
-//#define BBKEY_WINDOW [AppDelegate sharedApplication].window
 
-// tabBar高度
-#define TAB_BAR_HEIGHT (iPhoneX ? (49.f+34.f) : 49.f)
-// home indicator
-#define HOME_INDICATOR_HEIGHT (iPhoneX ? 34.f : 0.f)
-// 导航栏高度
-#define NAV_BAR_HEIGHT (44.f)
-#define STATUS_AND_NAV_BAR_HEIGHT (STATUS_BAR_HEIGHT + NAV_BAR_HEIGHT)
-#define STATUS_BAR_HEIGHT (CGRectGetHeight([UIApplication sharedApplication].statusBarFrame))
+#define STATUS_BAR_H (CGRectGetHeight([UIApplication sharedApplication].statusBarFrame))
+
+#define NAV_BAR_H             (44.f)
+#define STATUS_AND_NAV_BAR_H  (STATUS_BAR_H + NAV_BAR_H)
+#define TAB_BAR_H             (iPhoneX ? (49.f+34.f) : 49.f)
+#define HOME_INDICATOR_H      (iPhoneX ? 34.f : 0.f)
 
 // 设备相关
-#define GREATER_iPhone5_WIDTH           (MIN(SCREEN_WIDTH, SCREEN_HEIGHT) > 320)
-#define GREATER_iPhone6_WIDTH           (MIN(SCREEN_WIDTH, SCREEN_HEIGHT) > 375)
+#define GREATER_iPhone5_W      (MIN(SCREEN_W, SCREEN_H) > 320)
+#define GREATER_iPhone6_W      (MIN(SCREEN_W, SCREEN_H) > 375)
 
-//HERMIT
-#pragma mark HERMIT
-#define HERMIT_WIDTH ([UIScreen mainScreen].bounds.size.width)
-#define HERMIT_HEIGHT ([UIScreen mainScreen].bounds.size.height)
-#define HERMIT_RGBCOLOR [UIColor colorWithRed:244/255.0f green:244/255.0f blue:244/255.0f alpha:1]
-#define UNIT_WIDTH ([UIScreen mainScreen].bounds.size.width) / 320
+
+//---------------------------------------------------
+#pragma mark - scale
+
+#define SCALE_W_6       (MIN(SCREEN_W,SCREEN_H)/375.0)
+#define SCALE_W_6P      (MIN(SCREEN_W,SCREEN_H)/414)
+
+#define SCALE_W_5_D     (MIN(SCREEN_W,SCREEN_H)/320.0*0.8+0.2)
+#define SCALE_W_6P_D    (MIN(SCREEN_W,SCREEN_H)/414.0*0.8+0.2)
+#define SCALE_H_6P_D    (MAX(SCREEN_W,SCREEN_H)/736.0*0.8+0.2)
+#define SCALE_W_D(a)    (a/414.0*0.8+0.2)
+
+//---------------------------------------------------
+#pragma mark - 设备/版本
+/** 获取系统版本*/
+#define VERSION_iOS      [[[UIDevice currentDevice] systemVersion] floatValue]
+#define VERSION_SYSTEM   [[UIDevice currentDevice] systemVersion]
+#define VERSION_APP      [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
+
+// 判断iPhone
+#define iPhone4  (MAX(SCREEN_W, SCREEN_H) == 480)
+#define iPhone5  (MAX(SCREEN_W, SCREEN_H) == 568)
+#define iPhone6  (MAX(SCREEN_W, SCREEN_H) == 667)
+#define iPhone6P (MAX(SCREEN_W, SCREEN_H) == 736)
+#define iPhoneX  (MAX(SCREEN_W, SCREEN_H) >= 812)
 
 
 //---------------------------------------------------
@@ -133,9 +126,9 @@ UIColorFromRGB(colorHex);})
 #define IGNORE_ERROR @"a"    // 回调的时候,忽略掉的错误提示
 
 /** 简写*/
-#define UIFont(f)      [UIFont systemFontOfSize:f]
-#define UIImage(a)  [UIImage imageNamed:a]
-#define New(T)      [[T alloc] init]
+#define New(T)   [[T alloc] init]
+#define Font(T)  [UIFont systemFontOfSize:T]
+#define Img(T)   [UIImage imageNamed:T]
 
 
 /** 最大最小值 */

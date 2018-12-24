@@ -1,0 +1,15 @@
+//
+//  PrefixHeader.pch
+//  DGTool
+//
+//  Created by david on 2018/10/24.
+//  Copyright © 2018 david. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "Macro.h"
+
+
+#endif /* PrefixHeader_pch */
