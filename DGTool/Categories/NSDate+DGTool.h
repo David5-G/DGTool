@@ -32,14 +32,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSDate *)getNextMonthFirstDayForDate:(NSDate*)date;
 
 #pragma mark - 转换str
-/** yyyy-MM-dd HH:mm:ss */
-- (NSString *)dateStrToSecond;
-
-/** yyyy-MM-dd HH:mm:ss */
-- (NSString *)dateStrToMinute;
-
 /** yyyy-MM-dd */
 - (NSString *)dateStrToDay;
+
+/** yyyy-MM-dd HH:mm */
+- (NSString *)dateStrToMinute;
+
+/** yyyy-MM-dd HH:mm:ss */
+- (NSString *)dateStrToSecond;
 
 /** yyyy年MM月dd日 (今天xx月xx日)*/
 - (NSString *)readableDateStrToDay;

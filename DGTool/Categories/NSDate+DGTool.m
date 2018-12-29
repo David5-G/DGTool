@@ -139,13 +139,13 @@
 }
 
 #pragma mark - 转换str
-/** yyyy-MM-dd HH:mm:ss */
-- (NSString *)dateStrToSecond {
+/** yyyy-MM-dd */
+- (NSString *)dateStrToDay {
     
     static NSDateFormatter* dateFormat = nil;
     if (!dateFormat) {
         dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];//hh:12小时制, HH:24小时制
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];//hh:12小时制, HH:24小时制
     }
     return [dateFormat stringFromDate:self];
 }
@@ -160,13 +160,13 @@
     return [dateFormat stringFromDate:self];
 }
 
-/** yyyy-MM-dd */
-- (NSString *)dateStrToDay {
+/** yyyy-MM-dd HH:mm:ss */
+- (NSString *)dateStrToSecond {
     
     static NSDateFormatter* dateFormat = nil;
     if (!dateFormat) {
         dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:@"yyyy-MM-dd"];//hh:12小时制, HH:24小时制
+        [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];//hh:12小时制, HH:24小时制
     }
     return [dateFormat stringFromDate:self];
 }
