@@ -12,7 +12,7 @@
 #define kScreenW ([UIScreen mainScreen].bounds.size.width)
 
 @interface DGTextView ()
-@property (nonatomic, strong) UILabel *placeHolderLabel;
+@property (nonatomic,strong) UILabel *placeHolderLabel;
 @end
 
 @implementation DGTextView
@@ -49,12 +49,7 @@ static CGFloat const DGTextViewDuration = 0.2;
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if(self){
-        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-        paragraphStyle.lineSpacing = 2;// 字体的行间距
-        NSDictionary *attributes = @{NSParagraphStyleAttributeName:paragraphStyle };
-        self.typingAttributes = attributes;
-        [self setPlaceholder:@""];
-        [self setPlaceholderColor:kLightGrayTextColor];
+        [self configDefaultValue];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textChanged:) name:UITextViewTextDidChangeNotification object:nil];
     }
     return self;
@@ -65,16 +60,36 @@ static CGFloat const DGTextViewDuration = 0.2;
 }
 
 #pragma mark - UI
+-(void)configDefaultValue {
+    self.backgroundColor = UIColor.clearColor;
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 2;// 字体的行间距
+    NSDictionary *attributes = @{NSParagraphStyleAttributeName:paragraphStyle };
+    self.typingAttributes = attributes;
+    [self setPlaceholder:@""];
+    [self setPlaceholderColor:kLightGrayTextColor];
+}
+
+
 - (void)drawRect:(CGRect)rect{
     [super drawRect:rect];
-    if( [[self placeholder] length] > 0 ){
+    
+    if (self.attributedPlaceHolder.length > 0) {
+        [self addSubview:self.placeHolderLabel];
+        [self.placeHolderLabel sizeToFit];
+        self.placeHolderLabel.attributedText = self.attributedPlaceHolder;
+        [self sendSubviewToBack:self.placeHolderLabel];
+        
+    }else if( self.placeholder.length > 0 ){
         [self addSubview:self.placeHolderLabel];
         [self.placeHolderLabel sizeToFit];
         self.placeHolderLabel.text = self.placeholder;
         [self sendSubviewToBack:self.placeHolderLabel];
     }
     
-    if( self.text.length == 0 && self.attributedText.length == 0 && self.placeholder.length > 0 ){
+    BOOL noText = self.text.length == 0 && self.attributedText.length == 0;
+    BOOL hasPlaceHolder = self.placeholder.length > 0 || self.attributedPlaceHolder.length > 0;
+    if(noText  && hasPlaceHolder ){
         [self.placeHolderLabel setAlpha:1];
     }
 }
@@ -125,7 +140,7 @@ static CGFloat const DGTextViewDuration = 0.2;
 
 #pragma mark - notification
 - (void)textChanged:(NSNotification *)notification{
-    if(self.placeholder.length == 0){
+    if(self.placeholder.length <1 && self.attributedPlaceHolder.length < 1){
         return;
     }
     [UIView animateWithDuration:DGTextViewDuration animations:^{
@@ -146,6 +161,11 @@ static CGFloat const DGTextViewDuration = 0.2;
 - (void)setAttributedText:(NSAttributedString *)attributedText{
     [super setAttributedText:attributedText];
     [self textChanged:nil];
+}
+
+-(void)setAttributedPlaceHolder:(NSAttributedString *)attributedPlaceHolder {
+    _attributedPlaceHolder = attributedPlaceHolder;
+    self.placeHolderLabel.attributedText = attributedPlaceHolder;
 }
 
 -(void)setPlaceholder:(NSString *)placeholder {

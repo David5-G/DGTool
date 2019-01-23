@@ -10,6 +10,7 @@
 
 @interface DGTextView : UITextView
 
+@property (nonatomic, copy) NSAttributedString *attributedPlaceHolder;
 @property (nonatomic, copy) NSString *placeholder;
 @property (nonatomic, strong) UIColor *placeholderColor;
 
