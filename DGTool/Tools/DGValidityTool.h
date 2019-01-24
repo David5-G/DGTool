@@ -12,26 +12,39 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DGValidityTool : NSObject
 
-+ (BOOL)isOnlyNumerAndLetter:(NSString *)textStr;
-+ (BOOL)isOnlyChinese:(NSString *)textStr;
-
 
 /** 纯数字 */
 + (BOOL)isPureInt:(NSString *)str;
 
+/** 纯浮点数 */
++ (BOOL)isPureFloat:(NSString*)str;
+
 /** 纯字母 */
 + (BOOL)isPureLetter:(NSString *)str;
 
-/** 只有数字字母和中文 */
-+ (BOOL)isMatchNumberWordChinese:(NSString *)str;
+/** 纯中文 */
++ (BOOL)isPureChinese:(NSString *)textStr;
 
 /** 有中文 */
 + (BOOL)hasChinese:(NSString *)str;
 
+/** 只有字母和数字 */
++ (BOOL)isOnlyNumerAndLetter:(NSString *)textStr;
+
+/** 只有数字字母和中文 */
++ (BOOL)isOnlyNumberWordChinese:(NSString *)str;
+
+
+
+#pragma mark - 有效性
 /** 手机号码验证*/
-+ (BOOL)validateMobile:(NSString *)mobileStr;
++ (BOOL)isValidMobile:(NSString *)str;
+
 /** 邮箱*/
-+ (BOOL)validateEmail:(NSString *)emailStr;
++ (BOOL)isValidEmail:(NSString *)str;
+
+/** 身份证 */
++ (BOOL)isValidateIdCard:(NSString *)str;
 
 @end
 
