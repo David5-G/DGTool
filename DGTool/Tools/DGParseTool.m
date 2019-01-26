@@ -14,19 +14,12 @@
 @implementation DGParseTool
 
 
-
-/** 默认suffix=@"_map" */
 + (NSMutableArray *)addMapToArr:(NSMutableArray *)mArr forKey:(NSString *)key map:(NSDictionary *)map{
     NSString *definedKey = [key stringByAppendingString:kSuffix];
     return [self addMapToArr:mArr forKey:key map:map definedKey:definedKey];
 }
 
-/** 
- * mArr = @[@{id:001, name:aaa},@{id: 002, name:bbb}];
- * map = @{001: 18岁, 002: 20岁}
- * 这里的key=id, 假定definedKey=age
- * 结果:resultArr = @[@{id:001, name:aaa, age:18岁},@{idStr: 002, name:bbb, age:20岁}];
- */
+
 + (NSMutableArray *)addMapToArr:(NSMutableArray *)mArr forKey:(NSString *)key map:(NSDictionary *)map definedKey:(NSString *)definedKey{
     
     for (int i=0; i<mArr.count; i++) {
@@ -66,12 +59,6 @@
 }
 
 
-/**
- * mArr = @[@{id:001, name:aaa},@{id: 002, name:bbb}];
- * prefix = @"http://xxx.resource?userId="
- * 这里的key=userId, 假定definedKey=userLogoUrl
- * 结果:resultArr = @[@{id:001, name:aaa, userLogoUrl:http://xxx.resource?userId=001},@{idStr: 002, name:bbb, userLogoUrl:http://xxx.resource?userId=002}];
- */
 + (NSMutableArray *)addKeyValueToArr:(NSMutableArray *)mArr forKey:(NSString *)key prefix:(NSString *)prefix definedKey:(NSString *)definedKey {
     
     for (NSInteger i=0; i<mArr.count; i++) {

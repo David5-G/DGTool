@@ -74,6 +74,7 @@
 		6378E07C215DD41A0046F7FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6378E07A215DD41A0046F7FA /* LaunchScreen.storyboard */; };
 		6378E07F215DD41A0046F7FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6378E07E215DD41A0046F7FA /* main.m */; };
 		637C4DD921D1D0BA002180BD /* NSDate+DGTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 637C4DD821D1D0BA002180BD /* NSDate+DGTool.m */; };
+		6396AB0F21FB12310050FC89 /* UIView+DGFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6396AB0E21FB12310050FC89 /* UIView+DGFrame.m */; };
 		63D3F05E21D0E0590028679B /* NSMutableDictionary+DGSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F05C21D0E0580028679B /* NSMutableDictionary+DGSafe.m */; };
 		63D3F06121D0E06A0028679B /* NSObject+DGRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F06021D0E06A0028679B /* NSObject+DGRuntime.m */; };
 		63FCD0C7216D9B9500516026 /* DGHookTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FCD0C6216D9B9500516026 /* DGHookTrack.m */; };
@@ -213,6 +214,8 @@
 		637C252921805C8B0050C4FF /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		637C4DD721D1D0BA002180BD /* NSDate+DGTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+DGTool.h"; sourceTree = "<group>"; };
 		637C4DD821D1D0BA002180BD /* NSDate+DGTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DGTool.m"; sourceTree = "<group>"; };
+		6396AB0D21FB12310050FC89 /* UIView+DGFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+DGFrame.h"; sourceTree = "<group>"; };
+		6396AB0E21FB12310050FC89 /* UIView+DGFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+DGFrame.m"; sourceTree = "<group>"; };
 		63D3F05C21D0E0580028679B /* NSMutableDictionary+DGSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+DGSafe.m"; sourceTree = "<group>"; };
 		63D3F05D21D0E0590028679B /* NSMutableDictionary+DGSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+DGSafe.h"; sourceTree = "<group>"; };
 		63D3F05F21D0E06A0028679B /* NSObject+DGRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DGRuntime.h"; sourceTree = "<group>"; };
@@ -282,6 +285,8 @@
 				63430EC621D334C90034D6B9 /* UIButton+DGDefine.m */,
 				63430F0C21D35BD30034D6B9 /* UIViewController+DGAlert.h */,
 				63430F0D21D35BD30034D6B9 /* UIViewController+DGAlert.m */,
+				6396AB0D21FB12310050FC89 /* UIView+DGFrame.h */,
+				6396AB0E21FB12310050FC89 /* UIView+DGFrame.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -695,6 +700,7 @@
 				63430F0521D33A8E0034D6B9 /* DGCheckmarkView.m in Sources */,
 				635E6BE0217F2B75003AAFF8 /* DGHttpResponseLogicModel.m in Sources */,
 				633F9834216CA84700D86B96 /* NSDictionary+DGSafe.m in Sources */,
+				6396AB0F21FB12310050FC89 /* UIView+DGFrame.m in Sources */,
 				63430F5B21D363E50034D6B9 /* MASViewAttribute.m in Sources */,
 				63430F0121D33A8E0034D6B9 /* ALAsset+DGSelectImage.m in Sources */,
 				63430F6021D363E50034D6B9 /* ViewController+MASAdditions.m in Sources */,

@@ -21,8 +21,9 @@
 -(UIView *)displayView {
     if (!_displayView && _naviBar) {
         CGRect rect = self.view.frame;
-        rect.origin.y = self.naviBarHeight;
-        rect.size.height = rect.size.height - self.naviBarHeight;
+        CGFloat naviH = self.naviBar.frame.size.height;
+        rect.origin.y = naviH;
+        rect.size.height -= naviH;
         
         UIView *displayV = [[UIView alloc]initWithFrame:rect];
         [self.view addSubview:displayV];
@@ -37,8 +38,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = COLOR_BG;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationController.navigationBarHidden = YES;
 }
 
@@ -59,7 +60,7 @@
 - (UIStatusBarStyle)getStatusBarStyle {
     //1.如果有navigationBarView
     if (self.naviBar) {
-        DGNavigationBarType barType = [self naviBarType];
+        DGNavigationBarType barType = self.naviBar.barType;
         switch (barType) {
             case DGNavigationBarTypeDefault:
             case DGNavigationBarTypeClear:
@@ -81,22 +82,6 @@
 
 #pragma mark - navi
 
--(void)setNaviBarDefault{
-    [self setNaviBarWithType:DGNavigationBarTypeDefault];
-}
-
--(void)setNaviBarClear{
-    [self setNaviBarWithType:DGNavigationBarTypeClear];
-}
-
--(void)setNaviBarWhite{
-    [self setNaviBarWithType:DGNavigationBarTypeWhite];
-}
-
--(void)setNaviBarGray{
-    [self setNaviBarWithType:DGNavigationBarTypeGray];
-}
-
 /** 设置自定义的navigationBar */
 -(void)setNaviBarWithType:(DGNavigationBarType)barType{
     
@@ -115,70 +100,18 @@
         naviBarV.backButton.hidden = YES;
     }
     
-    //1.2 barType
-    switch (barType) {
-        case DGNavigationBarTypeDefault:{
-            //naviBarV.bgImageView.image = [UIImage imageNamed:@""];
-        }break;
-            
-        case DGNavigationBarTypeWhite:{
-            [naviBarV setNaviBarBackgroundColor:UIColor.whiteColor];
-            naviBarV.titleLabel.textColor = COLOR_HEX(0x333333);
-            
-            UIImage *backBtnImg = [UIImage imageNamed:@"navi_arrowLeft_gray"];
-            [naviBarV.backButton setImage:backBtnImg forState:UIControlStateNormal];
-        }break;
-            
-        case DGNavigationBarTypeClear:{
-            [naviBarV setNaviBarBackgroundColor:UIColor.clearColor];
-            naviBarV.titleLabel.textColor = COLOR_HEX(0x333333);
-        }break;
-            
-        case DGNavigationBarTypeGray:{
-            [naviBarV setNaviBarBackgroundColor:COLOR_HEX(0xf2f2f2)];
-            naviBarV.titleLabel.textColor = COLOR_HEX(0x333333);
-            
-            UIImage *backBtnImg = [UIImage imageNamed:@"navi_arrowLeft_gray"];
-            [naviBarV.backButton setImage:backBtnImg forState:UIControlStateNormal];
-        }break;
-            
-        default:
-            break;
-    }
-    
     //2. 更新statusBar
     [self setNeedsStatusBarAppearanceUpdate];
 }
 
-/** 获取导航栏类型 */
-- (DGNavigationBarType)naviBarType{
-    return self.naviBar.barType;
-}
-
-#pragma mark
-/** 自定义导航栏的高度 */
-- (CGFloat)naviBarHeight{
-    return self.naviBar.frame.size.height;
-}
-
-/** 设置导航栏的背景图 */
--(void)setNavigBarBackgroundImage:(UIImage *)image{
-    self.naviBar.bgImage = image;
-}
-
-/** 设置导航栏背景色,此方法会隐藏导航栏背景图 */
--(void)setNaviBarBackgroundColor:(UIColor *)color{
-    self.naviBar.backgroundColor = color;
-}
-
 #pragma mark title
-/** 自定义navigationBar的title */
-- (NSString *)naviBarTitle{
+/** 获取NaviBarTitle */
+- (NSString *)naviBarTitle {
     return self.naviBar.titleLabel.text;
 }
 
-/** 设置自定义navigationBar的title */
-- (void)setNaviBarTitle:(NSString *)title{
+/** 设置NaviBarTitle */
+- (void)setNaviBarTitle:(NSString *)title {
     self.naviBar.titleLabel.text = title;
 }
 
@@ -193,9 +126,9 @@
 }
 
 #pragma mark backButton
-/** 隐藏backBtn */
-- (void)hiddenBackButton{
-    self.naviBar.backButton.hidden = YES;
+//隐藏backBtn
+- (void)hideBackButton:(BOOL)hide {
+    self.naviBar.backButton.hidden = hide;
 }
 
 /** 点击backBtn */
@@ -214,24 +147,6 @@
     dispatch_after(delayTime, dispatch_get_main_queue(), ^{
         [self clickBackButton];
     });
-}
-
-#pragma mark - 查看图片
-- (void)previewImages:(NSArray <UIImage *>*)images defaultIndex:(NSInteger)index {
-    DGImagePreviewVC *vc = [[DGImagePreviewVC alloc]init];
-    [vc setPreviewImages:images defaultIndex:index];
-    vc.isAssetPreview = NO;
-    [self presentViewController:vc animated:YES completion:nil];
-}
-
-- (void)previewImage:(UIImage *)image {
-    DGSingleImagePreviewVC *imageViewController = [[DGSingleImagePreviewVC alloc]initWithImage:image];
-    [self presentViewController:imageViewController animated:YES completion:nil];
-}
-
-- (void)previewImageWithUrl:(NSURL *)imageUrl {
-    DGSingleImagePreviewVC *imageViewController = [[DGSingleImagePreviewVC alloc]initWithImageURL:imageUrl];
-    [self presentViewController:imageViewController animated:YES completion:nil];
 }
 
 @end

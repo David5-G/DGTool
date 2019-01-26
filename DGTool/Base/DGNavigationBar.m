@@ -33,40 +33,78 @@
     //1.bgImage
     UIImageView *bgImageV = [[UIImageView alloc] initWithFrame:self.bounds];
     self.bgImageView  = bgImageV;
-    bgImageV.image = [self imageWithColor:UIColor.grayColor];
-    bgImageV.contentMode = UIViewContentModeScaleAspectFill;
     [self addSubview:bgImageV];
+    bgImageV.image = [self imageWithColor:COLOR_NAVI_BG];
+    bgImageV.contentMode = UIViewContentModeScaleAspectFill;
     bgImageV.hidden = YES;
     
     //2.titleLabel
     UILabel *titleL = [[UILabel alloc]initWithFrame:CGRectMake(80, STATUS_BAR_H, SCREEN_W-160, 44)];
     self.titleLabel = titleL;
+    [self addSubview:titleL];
     titleL.textColor = UIColor.whiteColor;
     titleL.backgroundColor = UIColor.clearColor;
     titleL.font = [UIFont systemFontOfSize:19];
     titleL.textAlignment = NSTextAlignmentCenter;
-    [self addSubview:titleL];
     
     //3.backBtn
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.backButton = backBtn;
-    UIImage *backImage = [UIImage imageNamed:@"navi_arrowLeft_white"];
+    [self addSubview:backBtn];
+    UIImage *backImage = [UIImage imageNamed:@"navi_back_white"];
     [backBtn setImage:backImage forState:UIControlStateNormal];
     backBtn.frame=CGRectMake(10, STATUS_BAR_H, 50, 44);
     backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    [self addSubview:backBtn];
 }
 
 #pragma mark - setter
+-(void)setBarType:(DGNavigationBarType)barType {
+    _barType = barType;
+    
+    UIImage *backImgWhite = [UIImage imageNamed:@"navi_back_white"];
+    UIImage *backImgGray = [UIImage imageNamed:@"navi_back_gray"];
+    
+    switch (barType) {
+        case DGNavigationBarTypeDefault:{
+            self.bgColor = COLOR_NAVI_BG;
+            self.titleLabel.textColor = COLOR_HEX(0x333333);
+            [self.backButton setImage:backImgWhite forState:UIControlStateNormal];
+        }break;
+            
+        case DGNavigationBarTypeWhite:{
+            self.bgColor = UIColor.whiteColor;
+            self.titleLabel.textColor = COLOR_HEX(0x333333);
+            [self.backButton setImage:backImgGray forState:UIControlStateNormal];
+        }break;
+            
+        case DGNavigationBarTypeClear:{
+            self.bgColor = UIColor.clearColor;
+            self.titleLabel.textColor = COLOR_HEX(0x333333);
+            self.backButton.hidden = YES;
+        }break;
+            
+        case DGNavigationBarTypeGray:{
+            self.bgColor = COLOR_HEX(0xf2f2f2);
+            self.titleLabel.textColor = COLOR_HEX(0x333333);
+            [self.backButton setImage:backImgGray forState:UIControlStateNormal];
+        }break;
+            
+        default:
+            break;
+    }
+}
+
+
 -(void)setBgImage:(UIImage *)bgImage {
     _bgImageView.image = bgImage;
     _bgImageView.hidden = NO;
 }
 
--(void)setNaviBarBackgroundColor:(UIColor *)bgColor{
-    _bgImageView.hidden = YES;
+-(void)setBgColor:(UIColor *)bgColor {
+    _bgColor = bgColor;
     self.backgroundColor = bgColor;
 }
+
 
 #pragma mark - tool
 /** 纯色转图片 */
