@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "DGImageTool.h"
 #import "NSDate+DGTool.h"
+#import "NSObject+DGRuntime.h"
 
 @interface ViewController ()
 
@@ -23,13 +24,17 @@
     //[self testCalendar];
     //[self testDate];
     [self testPredicate];
+    
+   NSDictionary *dic = [[[UIResponder alloc]init] getAllProperties];
+    NSLog(@"properties:%@",dic);
 }
 
+#pragma mark -
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
 }
 
-
+#pragma mark -
 -(void)testDate {
     NSDate *date = [NSDate date];
     

@@ -8,5 +8,6 @@ use_frameworks!
 # Pods for DGTool
 
 pod 'MMKV'
+pod 'DGImagePicker'
 
 end

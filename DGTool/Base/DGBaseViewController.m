@@ -7,8 +7,8 @@
 //
 
 #import "DGBaseViewController.h"
-#import "DGSingleImagePreviewVC.h"
-#import "DGImagePreviewVC.h"
+//#import "DGSingleImagePreviewVC.h"
+//#import "DGImagePreviewVC.h"
 
 @interface DGBaseViewController ()
 @property(nonatomic,weak,readwrite) DGNavigationBar *naviBar;
