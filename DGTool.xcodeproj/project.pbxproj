@@ -44,7 +44,6 @@
 		63430F2521D35FF40034D6B9 /* DGAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63430F2321D35FF40034D6B9 /* DGAlertController.m */; };
 		63430F2621D35FF40034D6B9 /* DGAlertAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 63430F2421D35FF40034D6B9 /* DGAlertAction.m */; };
 		63430F2921D35FFF0034D6B9 /* DGFullScreenPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63430F2721D35FFF0034D6B9 /* DGFullScreenPopView.m */; };
-		63430F3521D3614A0034D6B9 /* DGTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 63430F3121D3614A0034D6B9 /* DGTextField.m */; };
 		63430F3621D3614A0034D6B9 /* DGTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63430F3221D3614A0034D6B9 /* DGTextView.m */; };
 		63430F3721D3614A0034D6B9 /* DGButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 63430F3321D3614A0034D6B9 /* DGButton.m */; };
 		63430F3821D3614A0034D6B9 /* DGLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 63430F3421D3614A0034D6B9 /* DGLabel.m */; };
@@ -62,6 +61,7 @@
 		635E6BDD217F1CB6003AAFF8 /* DGHttpRequestRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 635E6BDC217F1CB6003AAFF8 /* DGHttpRequestRecord.m */; };
 		635E6BE0217F2B75003AAFF8 /* DGHttpResponseLogicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 635E6BDF217F2B75003AAFF8 /* DGHttpResponseLogicModel.m */; };
 		6367643E217054CE00117BE7 /* DGScannerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6367643D217054CE00117BE7 /* DGScannerTool.m */; };
+		63D71F8F23869126004CAD67 /* DGTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D71F8E23869126004CAD67 /* DGTextField.m */; };
 		63F14A2B23348A6400BA11EA /* DGMenuLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F14A2923348A6400BA11EA /* DGMenuLabel.m */; };
 		63FCD0C7216D9B9500516026 /* DGHookTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FCD0C6216D9B9500516026 /* DGHookTrack.m */; };
 /* End PBXBuildFile section */
@@ -141,8 +141,6 @@
 		63430F2D21D361490034D6B9 /* DGButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGButton.h; sourceTree = "<group>"; };
 		63430F2E21D361490034D6B9 /* DGTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGTextView.h; sourceTree = "<group>"; };
 		63430F2F21D361490034D6B9 /* DGLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGLabel.h; sourceTree = "<group>"; };
-		63430F3021D3614A0034D6B9 /* DGTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGTextField.h; sourceTree = "<group>"; };
-		63430F3121D3614A0034D6B9 /* DGTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGTextField.m; sourceTree = "<group>"; };
 		63430F3221D3614A0034D6B9 /* DGTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGTextView.m; sourceTree = "<group>"; };
 		63430F3321D3614A0034D6B9 /* DGButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGButton.m; sourceTree = "<group>"; };
 		63430F3421D3614A0034D6B9 /* DGLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGLabel.m; sourceTree = "<group>"; };
@@ -180,6 +178,8 @@
 		6367643C217054CE00117BE7 /* DGScannerTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DGScannerTool.h; sourceTree = "<group>"; };
 		6367643D217054CE00117BE7 /* DGScannerTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DGScannerTool.m; sourceTree = "<group>"; };
 		6378E06C215DD4180046F7FA /* DGTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DGTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63D71F8D23869126004CAD67 /* DGTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGTextField.h; sourceTree = "<group>"; };
+		63D71F8E23869126004CAD67 /* DGTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGTextField.m; sourceTree = "<group>"; };
 		63F14A2923348A6400BA11EA /* DGMenuLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGMenuLabel.m; sourceTree = "<group>"; };
 		63F14A2A23348A6400BA11EA /* DGMenuLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGMenuLabel.h; sourceTree = "<group>"; };
 		63FCD0C5216D9B9500516026 /* DGHookTrack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DGHookTrack.h; sourceTree = "<group>"; };
@@ -427,8 +427,8 @@
 				63430F3421D3614A0034D6B9 /* DGLabel.m */,
 				63F14A2A23348A6400BA11EA /* DGMenuLabel.h */,
 				63F14A2923348A6400BA11EA /* DGMenuLabel.m */,
-				63430F3021D3614A0034D6B9 /* DGTextField.h */,
-				63430F3121D3614A0034D6B9 /* DGTextField.m */,
+				63D71F8D23869126004CAD67 /* DGTextField.h */,
+				63D71F8E23869126004CAD67 /* DGTextField.m */,
 				63430F2E21D361490034D6B9 /* DGTextView.h */,
 				63430F3221D3614A0034D6B9 /* DGTextView.m */,
 				63430F1721D35F340034D6B9 /* Pop */,
@@ -589,7 +589,6 @@
 				6326653C232F36A800020ECF /* main.m in Sources */,
 				63430F5C21D363E50034D6B9 /* MASViewConstraint.m in Sources */,
 				6367643E217054CE00117BE7 /* DGScannerTool.m in Sources */,
-				63430F3521D3614A0034D6B9 /* DGTextField.m in Sources */,
 				633F9828216C82B700D86B96 /* DGHttpResponseModel.m in Sources */,
 				63430ED021D337BF0034D6B9 /* DGNavigationBar.m in Sources */,
 				63430F5F21D363E50034D6B9 /* View+MASAdditions.m in Sources */,
@@ -608,6 +607,7 @@
 				63430F2921D35FFF0034D6B9 /* DGFullScreenPopView.m in Sources */,
 				63266563232F3A9D00020ECF /* NSMutableDictionary+DGSafe.m in Sources */,
 				63266558232F3A9D00020ECF /* UINavigationController+DGHook.m in Sources */,
+				63D71F8F23869126004CAD67 /* DGTextField.m in Sources */,
 				63430F5E21D363E50034D6B9 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				63430F5721D363E50034D6B9 /* MASCompositeConstraint.m in Sources */,
 				63430F2521D35FF40034D6B9 /* DGAlertController.m in Sources */,
