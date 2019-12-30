@@ -61,6 +61,7 @@
 		635E6BDD217F1CB6003AAFF8 /* DGHttpRequestRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 635E6BDC217F1CB6003AAFF8 /* DGHttpRequestRecord.m */; };
 		635E6BE0217F2B75003AAFF8 /* DGHttpResponseLogicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 635E6BDF217F2B75003AAFF8 /* DGHttpResponseLogicModel.m */; };
 		6367643E217054CE00117BE7 /* DGScannerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6367643D217054CE00117BE7 /* DGScannerTool.m */; };
+		63B5390423B9D95900F91336 /* DGVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B5390323B9D95900F91336 /* DGVerticalButton.m */; };
 		63D71F8F23869126004CAD67 /* DGTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D71F8E23869126004CAD67 /* DGTextField.m */; };
 		63F14A2B23348A6400BA11EA /* DGMenuLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F14A2923348A6400BA11EA /* DGMenuLabel.m */; };
 		63FCD0C7216D9B9500516026 /* DGHookTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FCD0C6216D9B9500516026 /* DGHookTrack.m */; };
@@ -178,6 +179,8 @@
 		6367643C217054CE00117BE7 /* DGScannerTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DGScannerTool.h; sourceTree = "<group>"; };
 		6367643D217054CE00117BE7 /* DGScannerTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DGScannerTool.m; sourceTree = "<group>"; };
 		6378E06C215DD4180046F7FA /* DGTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DGTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63B5390223B9D95900F91336 /* DGVerticalButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DGVerticalButton.h; sourceTree = "<group>"; };
+		63B5390323B9D95900F91336 /* DGVerticalButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DGVerticalButton.m; sourceTree = "<group>"; };
 		63D71F8D23869126004CAD67 /* DGTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGTextField.h; sourceTree = "<group>"; };
 		63D71F8E23869126004CAD67 /* DGTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGTextField.m; sourceTree = "<group>"; };
 		63F14A2923348A6400BA11EA /* DGMenuLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGMenuLabel.m; sourceTree = "<group>"; };
@@ -423,6 +426,8 @@
 				63430F1F21D35FE70034D6B9 /* DGItemView.m */,
 				63430F2D21D361490034D6B9 /* DGButton.h */,
 				63430F3321D3614A0034D6B9 /* DGButton.m */,
+				63B5390223B9D95900F91336 /* DGVerticalButton.h */,
+				63B5390323B9D95900F91336 /* DGVerticalButton.m */,
 				63430F2F21D361490034D6B9 /* DGLabel.h */,
 				63430F3421D3614A0034D6B9 /* DGLabel.m */,
 				63F14A2A23348A6400BA11EA /* DGMenuLabel.h */,
@@ -590,6 +595,7 @@
 				63430F5C21D363E50034D6B9 /* MASViewConstraint.m in Sources */,
 				6367643E217054CE00117BE7 /* DGScannerTool.m in Sources */,
 				633F9828216C82B700D86B96 /* DGHttpResponseModel.m in Sources */,
+				63B5390423B9D95900F91336 /* DGVerticalButton.m in Sources */,
 				63430ED021D337BF0034D6B9 /* DGNavigationBar.m in Sources */,
 				63430F5F21D363E50034D6B9 /* View+MASAdditions.m in Sources */,
 				63FCD0C7216D9B9500516026 /* DGHookTrack.m in Sources */,
