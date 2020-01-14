@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7BBFEE19D25F9D5E7D6B17FFDFAB395E"
+               BlueprintIdentifier = "91A6826828CB9FCD0169A7547E8A79EA"
+               BuildableName = "MMKV.framework"
                BlueprintName = "MMKV"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "MMKV.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

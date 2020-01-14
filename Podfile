@@ -8,6 +8,7 @@ use_frameworks!
 # Pods for DGTool
 
 pod 'MMKV'
-pod 'DGImagePicker'
+#pod 'DGImagePicker'
+pod 'MJRefresh'
 
 end

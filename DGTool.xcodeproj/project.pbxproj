@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		055C42DFFF436597D85FD84B /* Pods_DGTool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 306A997E4F3FE98DECC9E2F3 /* Pods_DGTool.framework */; };
+		6305586523CDB671005C47D6 /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 6305586423CDB671005C47D6 /* UIScrollView+Refresh.m */; };
 		6311752621D71811006C5EFE /* DGValidityTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6311752521D71811006C5EFE /* DGValidityTool.m */; };
 		6326652D232F366500020ECF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6326652A232F366500020ECF /* ViewController.m */; };
 		6326652E232F366500020ECF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6326652B232F366500020ECF /* AppDelegate.m */; };
@@ -70,6 +71,8 @@
 /* Begin PBXFileReference section */
 		306A997E4F3FE98DECC9E2F3 /* Pods_DGTool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DGTool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CEBA68EF42638B6202BC31 /* Pods-DGTool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DGTool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DGTool/Pods-DGTool.debug.xcconfig"; sourceTree = "<group>"; };
+		6305586323CDB671005C47D6 /* UIScrollView+Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Refresh.h"; sourceTree = "<group>"; };
+		6305586423CDB671005C47D6 /* UIScrollView+Refresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Refresh.m"; sourceTree = "<group>"; };
 		6311752421D71811006C5EFE /* DGValidityTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DGValidityTool.h; sourceTree = "<group>"; };
 		6311752521D71811006C5EFE /* DGValidityTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DGValidityTool.m; sourceTree = "<group>"; };
 		63266529232F366500020ECF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -230,6 +233,8 @@
 		6326653E232F3A9C00020ECF /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				6305586323CDB671005C47D6 /* UIScrollView+Refresh.h */,
+				6305586423CDB671005C47D6 /* UIScrollView+Refresh.m */,
 				63266546232F3A9C00020ECF /* UIViewController+DGAlert.h */,
 				63266541232F3A9C00020ECF /* UIViewController+DGAlert.m */,
 				63266548232F3A9C00020ECF /* UINavigationController+DGHook.h */,
@@ -546,17 +551,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DGTool/Pods-DGTool-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/MMKV/MMKV.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DGTool/Pods-DGTool-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMKV.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DGTool/Pods-DGTool-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DGTool/Pods-DGTool-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DGTool/Pods-DGTool-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A184FFB18EE0845F3B2B3622 /* [CP] Check Pods Manifest.lock */ = {
@@ -597,6 +601,7 @@
 				633F9828216C82B700D86B96 /* DGHttpResponseModel.m in Sources */,
 				63B5390423B9D95900F91336 /* DGVerticalButton.m in Sources */,
 				63430ED021D337BF0034D6B9 /* DGNavigationBar.m in Sources */,
+				6305586523CDB671005C47D6 /* UIScrollView+Refresh.m in Sources */,
 				63430F5F21D363E50034D6B9 /* View+MASAdditions.m in Sources */,
 				63FCD0C7216D9B9500516026 /* DGHookTrack.m in Sources */,
 				633F982D216C89AE00D86B96 /* DGAppTool.m in Sources */,
