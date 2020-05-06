@@ -8,11 +8,19 @@
 
 #import "DGTextField.h"
 
+
 @interface DGTextField ()
 
 @end
 
+
 @implementation DGTextField
+
+#pragma mark - setter/getter
+-(void)setMovingView:(UIView *)movingView {
+    _movingView = movingView;
+    _movingViewOriginalFrame = movingView.frame;
+}
 
 #pragma mark - life circle
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -42,7 +50,6 @@
 - (void)onInit {
     [self addKeyboardNotifications];
     self.movingView = [UIApplication sharedApplication].keyWindow;
-    self.movingViewOriginalFrame = CGRectZero;
 }
 
 -(void)setFont:(CGFloat)font textColor:(UIColor *)color textAlignment:(NSTextAlignment)alignment {
@@ -112,15 +119,16 @@
     //加上偏移高度
     overstep += self.spaceY;
     
-    //在这里要记录一下当前movingView的frame, 用于keyboardWillHide中将movingView的frame复位
-    self.movingViewOriginalFrame = self.movingView.frame;
-    
     //3. 如果overstep<=0代表不被遮挡,不需要移动
     if (overstep < 0) {  return ; }
     
     //4.动画
     CGFloat duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     CGRect frame = self.movingView.frame;
+    //如果movingView是keyWindow则,直接用movingViewOriginalFrame
+    if (self.movingView == [UIApplication sharedApplication].keyWindow) {
+        frame = self.movingViewOriginalFrame;
+    }
     frame.origin.y -= overstep;
     [UIView animateWithDuration: duration delay: 0 options: UIViewAnimationOptionCurveLinear animations: ^{
         self.movingView.frame = frame;
@@ -138,7 +146,7 @@
         self.movingView.frame = self.movingViewOriginalFrame;
         
     } completion:^(BOOL finished) {
-        self.movingViewOriginalFrame = self.movingView.frame;
+         
     }];
     
 }
@@ -171,3 +179,4 @@
 }
  
 @end
+

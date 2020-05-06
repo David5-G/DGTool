@@ -15,7 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 上移后，textField需要额外高于键盘顶部的距离，默认为0 */
 @property (nonatomic, assign) CGFloat spaceY;
 
-/** 需要向上移动的view，默认为keyWindow */
+/** 需要向上移动的view，默认为keyWindow
+ * 设置movingView的setter方法内会取movingView的frame给movingViewOriginalFrame赋值
+ */
 @property (nonatomic, weak) UIView *movingView;
 
 /**
@@ -37,3 +39,4 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
